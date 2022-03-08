@@ -19,7 +19,12 @@ public class Employee {
             throw new IllegalArgumentException("Name provided is not valid, must be between 3-25 characters in length");
         }
 
-        this.ppsId = ppsId;
+        if (ppsId.length() == 8) {
+            this.ppsId = ppsId;
+        } else {
+            throw new IllegalArgumentException("Invalid PPS ID, must be 8 characters in length");
+        }
+
         this.phone = phone;
         this.employmentType = employmentType;
         this.age = age;
