@@ -37,6 +37,10 @@ public class Employee {
             throw new IllegalArgumentException("Invalid employment type, must be 'full-time', 'part-time', or 'contract'");
         }
 
-        this.age = age;
+        if (age > 16) {
+            this.age = age;
+        } else {
+            throw new IllegalArgumentException("Age must be over 16");
+        }
     }
 }
