@@ -12,7 +12,13 @@ public class Employee {
         } else {
             throw new IllegalArgumentException("Invalid title, must be 'Mr', 'Mrs', or 'Ms'");
         }
-        this.name = name;
+
+        if (name.length() <= 25 && name.length() >= 3) {
+            this.name = name;
+        } else {
+            throw new IllegalArgumentException("Name provided is not valid, must be between 3-25 characters in length");
+        }
+
         this.ppsId = ppsId;
         this.phone = phone;
         this.employmentType = employmentType;
