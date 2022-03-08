@@ -1,3 +1,8 @@
+// Author: Ross Molloy
+// Student ID: G00359442
+// Date: 08 March 2022
+// Email: g00359442@gmit.ie
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -51,7 +56,7 @@ public class EmployeeTest {
     @Test
     public void testEmployeeWithInvalidPpsIdThrowsException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> { new Employee("Mr", "John Doe", "123", 123456789, "Full-time", 20); });
-        assertEquals("Invalid PPS ID, must be 8 characters in length", exception.getMessage());
+        assertEquals("Invalid PPS ID, must be eight characters in length", exception.getMessage());
     }
 
     @Test
