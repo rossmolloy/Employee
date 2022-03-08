@@ -25,7 +25,12 @@ public class Employee {
             throw new IllegalArgumentException("Invalid PPS ID, must be 8 characters in length");
         }
 
-        this.phone = phone;
+        if (phone.toString().length() == 9) {
+            this.phone = phone;
+        } else {
+            throw new IllegalArgumentException("Invalid phone, must be a nine digit number");
+        }
+
         this.employmentType = employmentType;
         this.age = age;
     }

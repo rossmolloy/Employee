@@ -43,4 +43,10 @@ public class EmployeeTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> { new Employee("Mr", "John Doe", "123", 123456789, "Full-time", 20); });
         assertEquals("Invalid PPS ID, must be 8 characters in length", exception.getMessage());
     }
+
+    @Test
+    public void testEmployeeWithInvalidPhoneThrowsException() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> { new Employee("Mr", "John Doe", "1234567A", 12345678, "Full-time", 20); });
+        assertEquals("Invalid phone, must be a nine digit number", exception.getMessage());
+    }
 }
