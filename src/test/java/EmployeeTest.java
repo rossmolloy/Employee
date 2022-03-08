@@ -65,4 +65,10 @@ public class EmployeeTest {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> { new Employee("Mr", "John Doe", "1234567A", 123456789, "None", 20); });
         assertEquals("Invalid employment type, must be 'full-time', 'part-time', or 'contract'", exception.getMessage());
     }
+
+    @Test
+    public void testEmployeeWithInvalidAgeThrowsException() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> { new Employee("Mr", "John Doe", "1234567A", 123456789, "Full-time", 15); });
+        assertEquals("Age must be over 16", exception.getMessage());
+    }
 }
