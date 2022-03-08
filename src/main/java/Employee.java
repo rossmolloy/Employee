@@ -31,7 +31,12 @@ public class Employee {
             throw new IllegalArgumentException("Invalid phone, must be a nine digit number");
         }
 
-        this.employmentType = employmentType;
+        if (employmentType.equalsIgnoreCase("full-time") || employmentType.equalsIgnoreCase("part-time") || employmentType.equalsIgnoreCase("contract")) {
+            this.employmentType = employmentType;
+        } else {
+            throw new IllegalArgumentException("Invalid employment type, must be 'full-time', 'part-time', or 'contract'");
+        }
+
         this.age = age;
     }
 }
