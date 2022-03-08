@@ -7,7 +7,7 @@ public class Employee {
     private Integer age;
 
     public Employee(String title, String name, String ppsId, Integer phone, String employmentType, Integer age) {
-        if (title.equals("Mr") || title.equals("Mrs") || title.equals("Ms")) {
+        if (title.equalsIgnoreCase("mr") || title.equalsIgnoreCase("mrs") || title.equalsIgnoreCase("ms")) {
             this.title = title;
         } else {
             throw new IllegalArgumentException("Invalid title, must be 'Mr', 'Mrs', or 'Ms'");
