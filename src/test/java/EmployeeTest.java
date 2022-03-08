@@ -21,6 +21,16 @@ public class EmployeeTest {
     }
 
     @Test
+    public void testValidEmployeeWithPartTimeEmploymentType() {
+        new Employee("Mr", "John Doe", "1234567A", 123456789, "Part-time", 20);
+    }
+
+    @Test
+    public void testValidEmployeeWithContractEmploymentType() {
+        new Employee("Mr", "John Doe", "1234567A", 123456789, "Contract", 20);
+    }
+
+    @Test
     public void testInvalidTitleThrowsException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> { new Employee("Invalid", "John Doe", "1234567A", 123456789, "Full-time", 20); });
         assertEquals("Invalid title, must be 'Mr', 'Mrs', or 'Ms'", exception.getMessage());
@@ -48,5 +58,11 @@ public class EmployeeTest {
     public void testEmployeeWithInvalidPhoneThrowsException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> { new Employee("Mr", "John Doe", "1234567A", 12345678, "Full-time", 20); });
         assertEquals("Invalid phone, must be a nine digit number", exception.getMessage());
+    }
+
+    @Test
+    public void testEmployeeWithInvalidEmploymentTypeThrowsException() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> { new Employee("Mr", "John Doe", "1234567A", 123456789, "None", 20); });
+        assertEquals("Invalid employment type, must be 'full-time', 'part-time', or 'contract'", exception.getMessage());
     }
 }
