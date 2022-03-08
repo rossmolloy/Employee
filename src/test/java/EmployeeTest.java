@@ -27,8 +27,14 @@ public class EmployeeTest {
     }
 
     @Test
-    public void testEmployeeWithInvalidNameThrowsException() {
+    public void testEmployeeWithShortNameThrowsException() {
         Exception exception = assertThrows(IllegalArgumentException.class, () -> { new Employee("Mr", "Jo", "1234567A", 123456789, "Full-time", 20); });
+        assertEquals("Name provided is not valid, must be between 3-25 characters in length", exception.getMessage());
+    }
+
+    @Test
+    public void testEmployeeWithLongNameThrowsException() {
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> { new Employee("Mr", "John Doooooooooooooooooooe", "1234567A", 123456789, "Full-time", 20); });
         assertEquals("Name provided is not valid, must be between 3-25 characters in length", exception.getMessage());
     }
 
